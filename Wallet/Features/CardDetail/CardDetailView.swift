@@ -53,6 +53,7 @@ struct CardDetailView: View {
                                 .padding(.horizontal)
                                 .padding(.vertical, 8)
                         }
+                        .buttonStyle(.plain)
                         Divider()
                     }
                 }
