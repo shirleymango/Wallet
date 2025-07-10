@@ -69,5 +69,6 @@ struct ContentView: View {
                 .zIndex(1)
             }
         }
+        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: selectedCardIndex)
     }
 }
