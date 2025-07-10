@@ -14,11 +14,10 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                VStack(spacing: 0) {
+                VStack(spacing: 8) {
                     Text("Wallet")
                         .font(.system(size: 30, weight: .bold, design: .default))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.bottom, 8)
 
                     CascadingCardsView(
                         spacing: 50,
@@ -26,6 +25,8 @@ struct ContentView: View {
                         selectedCardIndex: $selectedCardIndex,
                         animation: animation
                     )
+                    Text("test") // ADDED FOR TESTING PURPOSES, TODO: REMOVE
+                    PassesView() // TODO: MODIFY
                 }
                 .padding()
             }
