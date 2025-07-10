@@ -44,6 +44,9 @@ struct WalletHomeView: View {
                                  namespace: ns)
             }
         }
+        .animation(.spring(response: 0.4,
+                           dampingFraction: 0.8),
+                   value: vm.selectedCard)   // <- restores smooth morph
         .navigationBarHidden(vm.selectedCard != nil)
     }
 }
