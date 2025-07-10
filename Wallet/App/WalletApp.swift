@@ -12,7 +12,7 @@ struct WalletApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                ContentView()
+                WalletHomeView()
             }
         }
     }

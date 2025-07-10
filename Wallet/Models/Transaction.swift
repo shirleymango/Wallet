@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Transaction: Identifiable {
+struct Transaction: Identifiable, Hashable {
     let id = UUID()
     let imageName: String
     let storeName: String
