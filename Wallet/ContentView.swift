@@ -40,10 +40,11 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     CascadingCardsView(
-                        spacing: max(10, 50 - scrollOffset * 0.2), // Adjust spacing on scroll
+                        spacing: 50,
                         cardHeight: 220,
                         selectedCardIndex: $selectedCardIndex,
-                        animation: animation
+                        animation: animation,
+                        scrollOffset: scrollOffset
                     )
 
                     Text("test") // ADDED FOR TESTING PURPOSES, TODO: REMOVE
@@ -53,7 +54,9 @@ struct ContentView: View {
             }
             .coordinateSpace(name: "scroll")
             .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
-                scrollOffset = max(0, value * -1)
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    scrollOffset = max(0, value * -1)
+                }
             }
 
             // Overlay full screen detail view when a card is selected
@@ -66,6 +69,5 @@ struct ContentView: View {
                 .zIndex(1)
             }
         }
-        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: selectedCardIndex)
     }
 }
