@@ -38,6 +38,7 @@ struct ContentView: View {
                     Text("Wallet")
                         .font(.system(size: 30, weight: .bold, design: .default))
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(scrollOffset > 0 ? Color(UIColor.systemBackground) : Color(UIColor.label))
 
                     CascadingCardsView(
                         spacing: 50,
