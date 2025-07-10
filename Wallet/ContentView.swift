@@ -47,8 +47,8 @@ struct ContentView: View {
                         scrollOffset: scrollOffset
                     )
 
-                    Text("test") // ADDED FOR TESTING PURPOSES, TODO: REMOVE
                     PassesView() // TODO: MODIFY
+                    Spacer().frame(height: 60)
                 }
                 .padding()
             }
