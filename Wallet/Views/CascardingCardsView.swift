@@ -48,7 +48,7 @@ struct CascadingCardsView: View {
 
                 CardView(cardHeight: cardHeight,
                          card: SampleCardData.cards[index])
-                    .matchedGeometryEffect(id: index, in: animation)
+                    .matchedGeometryEffect(id: index, in: animation, isSource: selectedCardIndex == nil)
                     .onTapGesture { selectedCardIndex = index }
                     .offset(y: clampedOffset)
             }

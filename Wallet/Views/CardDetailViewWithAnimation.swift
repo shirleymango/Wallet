@@ -13,7 +13,6 @@ struct CardDetailViewWithAnimation: View {
     var animation: Namespace.ID
 
     var body: some View {
-        NavigationStack {
             VStack {
                 HStack {
                     Button("Done") {
@@ -24,7 +23,7 @@ struct CardDetailViewWithAnimation: View {
                 }
 
                 CardView(cardHeight: 220, card: SampleCardData.cards[selectedCardIndex ?? 0])
-                    .matchedGeometryEffect(id: cardIndex, in: animation)
+                    .matchedGeometryEffect(id: cardIndex, in: animation, isSource: true)
                     .padding()
 
                 Text("Latest Transactions")
@@ -43,6 +42,5 @@ struct CardDetailViewWithAnimation: View {
                 Spacer()
             }
             .background(Color(.systemBackground).edgesIgnoringSafeArea(.all))
-        }
     }
 }

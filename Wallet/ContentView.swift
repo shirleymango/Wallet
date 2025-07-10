@@ -70,6 +70,7 @@ struct ContentView: View {
                 .zIndex(1)
             }
         }
+        .navigationBarHidden(selectedCardIndex != nil)
         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: selectedCardIndex)
     }
 }
