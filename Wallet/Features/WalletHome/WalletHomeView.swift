@@ -10,7 +10,7 @@ import SwiftUI
 struct WalletHomeView: View {
     @StateObject private var vm = WalletHomeViewModel()
     @StateObject private var router = WalletHomeRouter()
-    @Namespace private var ns
+    @Namespace private var nsCards
 
     var body: some View {
         ZStack {
@@ -27,7 +27,7 @@ struct WalletHomeView: View {
                 CardStackView(selectedIndex: $vm.selectedCard,
                               cards: vm.cards,
                               scroll: vm.scrollOffset,
-                              namespace: ns)
+                              namespace: nsCards)
                 
                 PassGroupStackView(selectedIndex: $vm.selectedPassGroup,
                                    passGroups: vm.passGroups)
@@ -39,7 +39,7 @@ struct WalletHomeView: View {
             if let idx = vm.selectedCard {
                 CardDetailRouter(cardIndex: idx,
                                  onDismiss: { vm.selectedCard = nil },
-                                 namespace: ns)
+                                 namespace: nsCards)
             }
             if let idx = vm.selectedPassGroup {
                 PassGroupDetailRouter(passGroupIndex: idx,
