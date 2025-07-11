@@ -39,7 +39,7 @@ struct PassGroupDetailView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
 
-            Spacer()
+            Spacer(minLength: 120)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemBackground).ignoresSafeArea())
