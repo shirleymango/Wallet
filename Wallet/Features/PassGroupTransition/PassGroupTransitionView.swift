@@ -18,8 +18,8 @@ struct PassGroupTransitionView: View {
     @State private var fadeOthers  = false
 
     private let startSpacing: CGFloat = 0            // matches list
-    private let endSpacing:   CGFloat = 40           // big expanded fan
-    private let passHeight:   CGFloat = 220
+    private let endSpacing:   CGFloat = 50           // big expanded fan
+    private let passHeight:   CGFloat = 500
 
     var body: some View {
         let passGroup = SamplePassGroupData.passGroups[passGroupIndex]
@@ -34,7 +34,7 @@ struct PassGroupTransitionView: View {
 
             // 2.  Expanding fan of passes
             ZStack(alignment: .top) {
-                ForEach(passGroup.passList.indices.reversed(), id: \.self) { i in
+                ForEach(passGroup.passList.indices, id: \.self) { i in
                     PassView(passHeight: passHeight, pass: passGroup.passList[i])
                         .matchedGeometryEffect(id: passGroup.passList[i].id,
                                                in: namespace,
