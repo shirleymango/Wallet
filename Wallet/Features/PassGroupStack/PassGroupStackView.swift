@@ -19,7 +19,7 @@ struct PassGroupStackView: View {
         )
         ZStack(alignment: .top) {
             ForEach(passGroups.indices, id: \.self) { i in
-                PassGroupView(passGroupHeight: 500, passGroup: passGroups[i])
+                PassGroupView(passGroupHeight: 300, passGroup: passGroups[i])
                     .onTapGesture { selectedIndex = i }
                     .offset(y: meta.offsets[i])
                     .padding(.horizontal)

@@ -16,7 +16,7 @@ struct PassGroupStackLayout {
     ) -> (height: CGFloat,
           offsets: [CGFloat])
     {
-        let height    = CGFloat(500) + spacing * CGFloat(passCount-1)
+        let height    = CGFloat(300) + spacing * CGFloat(passCount-1)
         let offsets   = (0..<passCount).map { i -> CGFloat in
             max(0, CGFloat(i) * spacing)
         }
