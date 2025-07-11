@@ -11,6 +11,7 @@ import SwiftUI
 struct PassGroupStackView: View {
     @Binding var selectedIndex: Int?
     let passGroups: [PassGroup]
+    let namespace: Namespace.ID
     
     var body: some View {
         let meta = PassGroupStackLayout.layout(
@@ -19,10 +20,13 @@ struct PassGroupStackView: View {
         )
         ZStack(alignment: .top) {
             ForEach(passGroups.indices, id: \.self) { i in
-                PassGroupView(passGroupHeight: 300, passGroup: passGroups[i])
-                    .onTapGesture { selectedIndex = i }
-                    .offset(y: meta.offsets[i])
-                    .padding(.horizontal)
+                PassGroupView(passGroupHeight: 300,
+                              passGroup: passGroups[i],
+                              namespace: namespace
+                )
+                .onTapGesture { selectedIndex = i }
+                .offset(y: meta.offsets[i])
+                .padding(.horizontal)
             }
         }
         .frame(height: meta.height)

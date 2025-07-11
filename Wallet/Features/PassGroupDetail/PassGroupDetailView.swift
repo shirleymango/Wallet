@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PassGroupDetailView: View {
     let passGroupIndex: Int
+    let namespace: Namespace.ID
     let onDismiss: () -> Void
     
     private let passHeight: CGFloat = 500
@@ -30,7 +31,9 @@ struct PassGroupDetailView: View {
                 ForEach(Array(passGroupList.enumerated()), id: \.offset) { index, item in
                     PassView(passHeight: passHeight,
                              pass: passGroupList[index])
-                        .padding(.horizontal)
+                    .padding(.horizontal)
+                    .matchedGeometryEffect(id: passGroupList[index].id,
+                                           in: namespace)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))

@@ -11,6 +11,7 @@ struct WalletHomeView: View {
     @StateObject private var vm = WalletHomeViewModel()
     @StateObject private var router = WalletHomeRouter()
     @Namespace private var nsCards
+    @Namespace private var nsPasses
 
     var body: some View {
         ZStack {
@@ -30,7 +31,8 @@ struct WalletHomeView: View {
                               namespace: nsCards)
                 
                 PassGroupStackView(selectedIndex: $vm.selectedPassGroup,
-                                   passGroups: vm.passGroups)
+                                   passGroups: vm.passGroups,
+                                   namespace: nsPasses)
                 Spacer().frame(height: 60)
             }
             .coordinateSpace(name: "scroll")
@@ -43,7 +45,8 @@ struct WalletHomeView: View {
             }
             if let idx = vm.selectedPassGroup {
                 PassGroupDetailRouter(passGroupIndex: idx,
-                                      onDismiss: { vm.selectedPassGroup = nil })
+                                      onDismiss: { vm.selectedPassGroup = nil },
+                                      namespace: nsPasses)
             }
         }
         .animation(.spring(response: 0.4,

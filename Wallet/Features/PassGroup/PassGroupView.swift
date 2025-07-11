@@ -11,6 +11,7 @@ import SwiftUI
 struct PassGroupView: View {
     let passGroupHeight: CGFloat
     let passGroup: PassGroup
+    let namespace: Namespace.ID
 
     var body: some View {
         let meta = PassGroupLayout.layout(
@@ -21,6 +22,8 @@ struct PassGroupView: View {
                 PassView(passHeight: passGroupHeight, pass: passGroup.passList[i])
                     .offset(y: meta[i])
                     .padding(.horizontal)
+                    .matchedGeometryEffect(id: passGroup.passList[i].id,
+                                           in: namespace)
             }
         }
     }
