@@ -23,7 +23,8 @@ struct PassGroupView: View {
                     .offset(y: meta[i])
                     .padding(.horizontal)
                     .matchedGeometryEffect(id: passGroup.passList[i].id,
-                                           in: namespace)
+                                           in: namespace,
+                                           isSource: false)
             }
         }
     }

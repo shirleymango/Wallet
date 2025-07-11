@@ -34,7 +34,8 @@ struct PassGroupDetailView: View {
                              pass: passGroupList[index])
                     .padding(.horizontal)
                     .matchedGeometryEffect(id: passGroupList[index].id,
-                                           in: namespace)
+                                           in: namespace,
+                                           isSource: true)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
