@@ -11,6 +11,7 @@ struct PassGroupDetailView: View {
     let passGroupIndex: Int
     let namespace: Namespace.ID
     let onDismiss: () -> Void
+    @State private var animateIn = false
     
     private let passHeight: CGFloat = 500
     
@@ -42,5 +43,7 @@ struct PassGroupDetailView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemBackground).ignoresSafeArea())
+        .onAppear { withAnimation{ animateIn = true } }
+        .onDisappear { withAnimation { animateIn = false } }
     }
 }
