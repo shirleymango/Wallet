@@ -15,7 +15,6 @@ struct WalletHomeView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                // 1️⃣  Tracker must scroll with content, so put it first:
                 ScrollTracker(action: vm.onScrollChange)
                     .frame(height: 0)
                 
@@ -34,8 +33,6 @@ struct WalletHomeView: View {
                 Spacer().frame(height: 60)
             }
             .coordinateSpace(name: "scroll")
-            // 2️⃣  Remove the old overlay; no longer needed
-            // .overlay(ScrollTracker(action: vm.onScrollChange))
 
             // Overlay card detail
             if let idx = vm.selectedCard {
