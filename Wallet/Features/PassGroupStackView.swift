@@ -8,9 +8,8 @@
 import Foundation
 import SwiftUI
 
-// TODO: move passgroups to WalletHomeViewModel
 struct PassGroupStackView: View {
-    let passGroups = SamplePassGroupData.passGroups
+    let passGroups: [PassGroup]
     
     var body: some View {
         let meta = PassGroupStackLayout.layout(

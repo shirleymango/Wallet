@@ -13,6 +13,7 @@ final class WalletHomeViewModel: ObservableObject {
     @Published var scrollOffset: CGFloat = 0
 
     let cards: [Card] = SampleCardData.cards
+    let passGroups: [PassGroup] = SamplePassGroupData.passGroups
 
     func onScrollChange(_ y: CGFloat) {
         scrollOffset = max(0, -y)
