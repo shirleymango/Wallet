@@ -14,6 +14,8 @@ struct PassGroupDetailView: View {
     private let passHeight: CGFloat = 500
     
     var body: some View {
+        let passGroupList: [Pass] = SamplePassGroupData.passGroups[passGroupIndex].passList
+        
         VStack(spacing: 0) {
             // Header
             HStack {
@@ -23,10 +25,15 @@ struct PassGroupDetailView: View {
             }
             .padding()
             
-            // Pass
-            PassView(passHeight: passHeight,
-                     pass: SamplePassGroupData.passGroups[passGroupIndex].passList[0])
-                .padding(.horizontal)
+            // Pass Tab View
+            TabView() {
+                ForEach(Array(passGroupList.enumerated()), id: \.offset) { index, item in
+                    PassView(passHeight: passHeight,
+                             pass: passGroupList[index])
+                        .padding(.horizontal)
+                }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
 
             Spacer()
         }
