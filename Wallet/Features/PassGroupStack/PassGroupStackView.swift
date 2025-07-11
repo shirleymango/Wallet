@@ -26,5 +26,6 @@ struct PassGroupStackView: View {
             }
         }
         .frame(height: meta.height)
+        .offset(y: -meta.offsets.last! / 2)
     }
 }
