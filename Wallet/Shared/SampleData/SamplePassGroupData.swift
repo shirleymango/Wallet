@@ -17,4 +17,5 @@ struct SamplePassGroupData {
         Pass(background: "Eventbrite3"),
         Pass(background: "Eventbrite4")
     ])
+    static let passGroups: [PassGroup] = [passGroup1, passGroup2]
 }

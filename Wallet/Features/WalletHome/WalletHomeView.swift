@@ -29,7 +29,7 @@ struct WalletHomeView: View {
                               scroll: vm.scrollOffset,
                               namespace: ns)
                 
-                PassesView()
+                PassGroupStackView()
                 Spacer().frame(height: 60)
             }
             .coordinateSpace(name: "scroll")
