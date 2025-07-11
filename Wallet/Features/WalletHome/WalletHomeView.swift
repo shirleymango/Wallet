@@ -29,7 +29,8 @@ struct WalletHomeView: View {
                               scroll: vm.scrollOffset,
                               namespace: ns)
                 
-                PassGroupStackView(passGroups: vm.passGroups)
+                PassGroupStackView(selectedIndex: $vm.selectedPassGroup,
+                                   passGroups: vm.passGroups)
                 Spacer().frame(height: 60)
             }
             .coordinateSpace(name: "scroll")
@@ -39,6 +40,10 @@ struct WalletHomeView: View {
                 CardDetailRouter(cardIndex: idx,
                                  onDismiss: { vm.selectedCard = nil },
                                  namespace: ns)
+            }
+            if let idx = vm.selectedPassGroup {
+                PassGroupDetailRouter(passGroupIndex: idx,
+                                      onDismiss: { vm.selectedPassGroup = nil })
             }
         }
         .animation(.spring(response: 0.4,
