@@ -44,9 +44,26 @@ struct WalletHomeView: View {
                                  namespace: nsCards)
             }
             if let idx = vm.selectedPassGroup {
-                PassGroupDetailRouter(passGroupIndex: idx,
-                                      onDismiss: { vm.selectedPassGroup = nil },
-                                      namespace: nsPasses)
+                if vm.isTransitioningToDetail {
+                    PassGroupDetailRouter(
+                        passGroupIndex: idx,
+                        onDismiss: {
+                            vm.selectedPassGroup = nil
+                            vm.isTransitioningToDetail = false
+                        },
+                        namespace: nsPasses
+                    )
+                } else {
+                    PassGroupTransitionView(
+                        passGroupIndex: idx,
+                        namespace: nsPasses,
+                        onTransitionComplete: {
+                            withAnimation {
+                                vm.isTransitioningToDetail = true
+                            }
+                        }
+                    )
+                }
             }
         }
         .animation(.spring(response: 0.4,

@@ -11,6 +11,7 @@ import Foundation
 final class WalletHomeViewModel: ObservableObject {
     @Published var selectedCard: Int? = nil
     @Published var scrollOffset: CGFloat = 0
+    @Published var isTransitioningToDetail: Bool = false
     @Published var selectedPassGroup: Int? = nil
 
     let cards: [Card] = SampleCardData.cards
