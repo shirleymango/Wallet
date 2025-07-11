@@ -16,7 +16,7 @@ struct PassView: View {
         Image(pass.background)
             .resizable()
             .scaledToFill() // or .aspectRatio(contentMode: .fill)
-            .frame(height: passHeight) // just height, not maxHeight
+            .frame(height: passHeight, alignment: .top) // just height, not maxHeight
             .frame(maxWidth: .infinity) // optional: stretch horizontally
             .clipped()
             .shadow(radius: 4)
